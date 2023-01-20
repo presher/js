@@ -1,0 +1,22 @@
+function plusMinus(arr) {
+    // Write your code here
+    let numPositive = [];
+    let numNegative = [];
+    let numZero = [];
+
+for(let i = 0; i < arr.length; i++){
+      if (arr[i]>0){
+            numPositive.push(arr[i]>0);
+        }else if (arr[i]<0){
+            numNegative.push(arr[i]<0);
+        }else{
+            numZero.push(arr[i]==0)
+        }
+    }
+        Ratio is found as a result of the length of the pushed array divided bt the length of the original array
+    console.log(numPositive.length/arr.length);
+    console.log(numNegative.length/arr.length);
+    console.log(numZero.length/arr.length);
+
+}
+plusMinus([1,2,3,4,5])
