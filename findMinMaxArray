@@ -1,0 +1,12 @@
+function miniMaxSum(arr) {
+  let valuesArray = [];
+  for (let o = 0; o < 5; o++) {
+      let shifted = arr.shift(arr.indexOf(arr[o],1));
+      valuesArray.push(arr.reduce((a, b) => a + b, 0));
+      arr.push(shifted);
+  }
+    let max = Math.max(...valuesArray)
+    let min = Math.min(...valuesArray)
+    console.log(max, min)
+}
+miniMaxSum([1, 2, 3, 4, 5]);
