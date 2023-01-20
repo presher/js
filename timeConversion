@@ -1,0 +1,38 @@
+function timeConversions(time) {
+    //first check if time is AM/PM
+    const isPM = time.indexOf("PM") !== -1;
+    //deconstruct time for hoursm minutes, and seconds
+    //then check to see if PM is true if it is replace it with an empty string
+    //if the check yields AM replace it with an empty string
+    //then split the time on the :
+    let [hours, minutes, seconds] = time
+      .replace(isPM ? "PM" : "AM", "")
+      .split(":");
+    console.log(isPM)
+    //check to see if isPM is true or not
+    //if isPM is true set time for 24 hour tinme in PM
+    //if isPM is false set time for 24 hour time in AM
+    if (isPM) {
+        //parse the hour string to a number of base 10 and add 12 to it
+        //if the hour is 12 keep it at 12 since 24 hour 12 and PM 12 are the same
+        //if the hour is not 12 keep the hour
+        hours = parseInt(hours, 10) + 12;
+        hours = hours === 24 ? 12 : hours;
+        console.log(hours)
+    } else {
+        //if the hour is not PM
+        //parese the hour string to a number of base 10
+        //then if the number is 12 change it to 0 for 24 hour clock
+        //if the time is not 12 keep the hours as is
+        //finally add a 0 in front of the hours
+        hours = parseInt(hours, 10);
+      hours = hours === 12 ? 0 : hours;
+      if (String(hours).length === 1) hours = "0" + hours;
+    }
+    //join the hours, minutes, and seconds back together on the :
+    const t = [hours, minutes, seconds].join(":");
+    console.log(t);
+    return t;
+}
+
+timeConversions('12:05:45AM')
