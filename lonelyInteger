@@ -1,0 +1,21 @@
+/**
+ *
+ * @param a
+ * Given an array of integers, where all elements but one occur twice, find the unique element.
+ * [1, 2, 3, 4, 3, 2, 1]
+ * The array can be sorted or unsorted and of any length
+ */
+function lonelyInteger(a) {
+  let sortedArray = a.sort();
+  var map = sortedArray.reduce(function (obj, b) {
+    obj[b] = ++obj[b] || 1;
+    return obj;
+  }, {});
+  let final = 0;
+  for (const key in map) {
+    if (map[key] === 1) {
+      final = key;
+      return final;
+    }
+  }
+}
