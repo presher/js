@@ -1,0 +1,33 @@
+//Sample input [[3], [11, 2, 4], [4, 5, 6], [10, 8, -12]]
+function diagonalDifference(arr) {
+  let product = 0;
+  let reversedProduct = 0;
+    let productArray = [];
+    let a = arr;
+    for (let i = 0; i < a.length; i++) {
+      for (let j = 0; j < a[i].length; j++) {
+          if (i === j && a[i].length >= 2) {
+          product += a[i][j];
+        }
+      }
+    }
+      productArray.push(product);
+    let reversedArray = arr.slice().reverse();
+    for (let i = 0; i < reversedArray.length; i++) {
+       
+    for (let j = 0; j < reversedArray[i].length; j++) {
+            if (i === j && reversedArray[i].length >= 2) {
+              console.log(333333, reversedArray[i][j]);
+              reversedProduct += reversedArray[i][j];
+            }
+    }
+  }
+    productArray.push(reversedProduct);
+    console.log(
+      productArray.sort(function (a, b) {
+        return b - a;
+      })
+    );
+  let difference = productArray[0] - productArray[1];
+    return difference;
+}
