@@ -1,0 +1,23 @@
+function countingSort(arr) {
+  console.log(arr.length);
+  let count = 0;
+  let found = [];
+    
+    while (count < arr.length) {
+        let x = [];
+        let p = 0;
+        let foundsort = 1;
+        for (const e in arr) {
+            
+            if (arr[e] === arr[count]) {
+                p = foundsort++;
+                x.push(p);
+            }
+        }
+        count++;
+        found.push(x.length);
+    }
+     console.log("found", found);
+        return found
+}
+    
