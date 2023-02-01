@@ -1,0 +1,20 @@
+let arr = [5,4,7,6,8];
+let length = arr.length;
+let arr2 = [];
+function sortArray(arr) {
+    let minValue = Math.min(...arr);
+    arr2.unshift(minValue);
+  for (let i = 0; i < length; i++) {
+    let position = arr[i] - arr2[0];
+    console.log(position, arr[i]);
+    
+    console.log(11111, arr2[position] === undefined);
+    if(arr2[position] === undefined){
+        arr2[position] = 0;
+    }
+    arr2.splice(position, 1, arr[i]);
+    
+  }
+  console.log(11111, arr2)
+  return arr2;
+}
