@@ -1,0 +1,19 @@
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ * Output: [24,12,8,6]
+ * also works for array with a 0 and an array with all 0's
+ */
+ 
+ var productExceptSelf = function (nums) {
+  let output = [] ;
+    nums.forEach((element, index, array) => {
+      let removed_element = nums.splice(index, 1);
+        output.push(nums.reduce((a, b) => a * b ));
+      nums.unshift(removed_element);
+    });
+};
+
+let arr = [1, 2, 3, 4]
+
+productExceptSelf(arr)
